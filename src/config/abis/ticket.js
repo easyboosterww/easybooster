@@ -44,13 +44,6 @@ export default [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "transfer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"stateMutability": "payable",
 		"type": "receive"
 	}
