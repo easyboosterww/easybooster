@@ -21,19 +21,6 @@ export default [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "_booster",
-				"type": "address"
-			}
-		],
-		"name": "setEasyBooster",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
 				"name": "toAddress",
 				"type": "address"
 			}
