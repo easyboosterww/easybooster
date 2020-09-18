@@ -7,22 +7,36 @@ on:
   push:
     branches:
       - master
-  jobs:
-   build-and-deploy:
-    runs-on: ubuntu-latest # 我们选择使用最新的ubuntu系统
+# 工作流执行的一个或多个任务
+jobs:
+  # 任务名称
+  build-and-deploy:
+    # 任务运行的容器类型（虚拟机环境）
+    runs-on: ubuntu-latest
+    # 任务执行的步骤
     steps:
-    - name: Checkout
-     uses: actions/checkout@master # 将代码拷贝到虚机中
-     with:
-      persist-credentials: false
-    - name: Install and Build
-     run: |
-      npm install
-      npm run-script build
-    - name: Deploy
-     uses: JamesIves/github-pages-deploy-action@releases/v3
-     with:
-      ACCESS_TOKEN: ${{ secrets.MY_TOKEN }} # 使用刚新建的secret
-      BRANCH: pages # 存放产物的分支名称
-      FOLDER: dist # 存放build后产物的目录
-      BUILD_SCRIPT: npm install && npm run build # 执行的命令
+      # 步骤名称
+      - name: Checkout 🛎️
+        # 使用的操作 actions，可以使用公共仓库，本地仓库，别人的仓库的action
+        # 拉取代码
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          node -v
+          npm -v
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+          # 在部署前要checkout的基本分支，默认是master
+          BASE_BRANCH: master # The branch the action should deploy from.
+          # 指定部署的分支，默认是 gh-pages 分支
+          BRANCH: pages # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
