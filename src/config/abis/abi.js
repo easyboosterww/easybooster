@@ -487,6 +487,25 @@ export default [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_length",
+				"type": "uint256"
+			}
+		],
+		"name": "rand",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
