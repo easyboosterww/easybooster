@@ -418,7 +418,12 @@ export default {
                     ref: this.address || zeroAddr,
                 },
             });
-            return `${location.origin}/${v.href}`;
+
+            if (v.href[0] == "#") {
+                return `${location.origin}/${v.href}`;
+            }
+
+            return `${location.origin}${v.href}`;
         },
         dayLimit() {
             return new Decimal(this.account.deposit || 0).mul(new Decimal(2 * 0.7));
