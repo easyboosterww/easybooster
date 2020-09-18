@@ -27,15 +27,14 @@ jobs:
         run: |
           node -v
           npm -v
-          npm install
-          npm run build
+          yarn add @jamesives/github-pages-deploy-action
+          yarn install
+          yarn build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.1
         with:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
-          # 在部署前要checkout的基本分支，默认是master
-          BASE_BRANCH: master # The branch the action should deploy from.
           # 指定部署的分支，默认是 gh-pages 分支
           BRANCH: pages # The branch the action should deploy to.
           FOLDER: dist # The folder the action should deploy.
