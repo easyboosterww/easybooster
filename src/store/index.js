@@ -66,6 +66,7 @@ export default new Vuex.Store({
             if (enabled) {
                 // 定时获取资金池余额
                 setIntervalImmediately(() => {
+                    // let funds =  await window.ethereum.request({ method: 'eth_getBalance' })
                     window.web3.eth.getBalance(config.mainAddress, (err, value) => {
                         if (!err) {
                             commit('setFunds', value)
