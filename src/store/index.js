@@ -64,11 +64,35 @@ export default new Vuex.Store({
             commit('setEnabled', enabled)
 
             if (enabled) {
+            //    const  hex2int = function(hex) {
+            //         var len = hex.length, a = new Array(len), code;
+            //         for (var i = 0; i < len; i++) {
+            //             code = hex.charCodeAt(i);
+            //             if (48<=code && code < 58) {
+            //                 code -= 48;
+            //             } else {
+            //                 code = (code & 0xdf) - 65 + 10;
+            //             }
+            //             a[i] = code;
+            //         }
+                    
+            //         return a.reduce(function(acc, c) {
+            //             acc = 16 * acc + c;
+            //             return acc;
+            //         }, 0);
+            //     }
+
                 // 定时获取资金池余额
                 setIntervalImmediately(() => {
-                    // let funds =  await window.ethereum.request({ method: 'eth_getBalance' })
+                    // window.ethereum.request({ method: 'eth_getBalance' ,params:[config.mainAddress, "latest"]}).then(value => {
+                    //     let r = hex2int("13b7b21280e0000")
+                    //     console.log("r=",r, "value=", value.substring(1, value.length -1))
+                    // })
+                    
+
                     window.web3.eth.getBalance(config.mainAddress, (err, value) => {
                         if (!err) {
+                            console.log("value=",value)
                             commit('setFunds', value)
                         }
                     })
