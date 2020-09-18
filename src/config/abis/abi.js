@@ -107,10 +107,6 @@ export default [
 		"type": "constructor"
 	},
 	{
-		"stateMutability": "payable",
-		"type": "receive"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
