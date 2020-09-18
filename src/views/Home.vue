@@ -509,15 +509,18 @@ export default {
         };
     },
     methods: {
-        handleConnect() {
+        async handleConnect() {
             if (this.$store.state.enabled) {
-                window.web3.eth.requestAccounts((err, accounts) => {
-                    if (!err) {
-                        this.$store.dispatch("setAddress", accounts[0]);
-                    } else {
-                        this.$toast.error(err);
-                    }
-                });
+              const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+              //this.account = accounts[0]
+              this.$store.dispatch("setAddress", accounts[0]);
+                // window.web3.eth.requestAccounts((err, accounts) => {
+                //     if (!err) {
+                //         this.$store.dispatch("setAddress", accounts[0]);
+                //     } else {
+                //         this.$toast.error(err);
+                //     }
+                // });
             } else {
                 this.$toast.error(this.$t("请使用MetaMask或者imToken打开此网页"));
             }
