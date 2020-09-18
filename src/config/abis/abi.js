@@ -19,13 +19,6 @@ export default [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "kill",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -47,19 +40,6 @@ export default [
 			}
 		],
 		"name": "setEverydayIncome",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "addr",
-				"type": "address"
-			}
-		],
-		"name": "setOwner",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -111,24 +91,6 @@ export default [
 	{
 		"inputs": [],
 		"name": "takeManageIncome",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "numTokens",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -466,19 +428,6 @@ export default [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
 			}
 		],
 		"stateMutability": "view",
